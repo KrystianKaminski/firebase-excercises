@@ -33,7 +33,10 @@ class Counter extends React.Component {
     readFromFirebase = () => {
         fetch('https://krystian-kaminski.firebaseio.com/counter.json')
             .then(response => response.json())
-            .then(data => this.setState({value: data}))
+            .then(data => {
+                if (this.state.value === data) return
+                this.setState({value: data})
+            }    )
     }
 
    componentDidMount = () => {
@@ -41,6 +44,7 @@ class Counter extends React.Component {
    }
 
     componentDidUpdate() {
+        this.readFromFirebase()
         this.saveToFirebase()
     }
 
