@@ -1,4 +1,5 @@
 import React from 'react'
+import { database } from './firebaseConfig'
 
 class Counter extends React.Component {
 
@@ -6,47 +7,16 @@ class Counter extends React.Component {
         value: this.props.initialValue || 0
     }
 
-    incHandler = () => {
-        this.setState({value: this.state.value + 1})
-        // let newValue = this.state.value + 1
-        // fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
-        //     method: 'PUT',
-        //     body: JSON.stringify(newValue)
-        // })
-    }
-    decHandler = () =>  {
-        this.setState({value: this.state.value - 1})
-        // let newValue = this.state.value - 1
-        // fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
-        //     method: 'PUT',
-        //     body: JSON.stringify(newValue)
-        // })
+    componentDidMount() {
+        database.ref('/counter').on(
+            'value',
+            snapshot => this.setState({value: snapshot.val()})
+        )
     }
 
-    saveToFirebase = () =>  {
-        fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
-            method: 'PUT',
-            body: JSON.stringify(this.state.value)
-        })
-    }
+    incHandler = () => this.setState({value: this.state.value + 1})
 
-    readFromFirebase = () => {
-        fetch('https://krystian-kaminski.firebaseio.com/counter.json')
-            .then(response => response.json())
-            .then(data => {
-                if (this.state.value === data) return
-                this.setState({value: data})
-            }    )
-    }
-
-   componentDidMount = () => {
-       this.readFromFirebase()
-   }
-
-    componentDidUpdate() {
-        this.readFromFirebase()
-        this.saveToFirebase()
-    }
+    decHandler = () => this.setState({value: this.state.value - 1})
 
     render() {
         return (
