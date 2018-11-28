@@ -6,6 +6,7 @@ import React from 'react'
 const Input = (props) => (
     <div>
         <input
+            value={props.text}
             onChange={props.onChange}
             type="text"
         />

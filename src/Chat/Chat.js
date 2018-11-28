@@ -19,12 +19,16 @@ class Chat extends React.Component {
 
     handleInput = e => {
         this.setState({
-            newMessageText: e.target.value
+            newMessageText: e.target.value,
         })
     }
 
     handleSubmit = () => {
-        database.ref('/messages').set(this.state.newMessageText)
+        database.ref('/messages').push({
+            text: this.state.newMessageText,
+            timeStamp: Date.now()
+        })
+        this.setState( {newMessageText: ''})
     }
 
     render() {
