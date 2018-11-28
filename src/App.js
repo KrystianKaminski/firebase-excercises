@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-import Counter from './Counter'
+import Chat from './Chat'
 
 
 class App extends Component {
   render() {
     return (
      <div>
-       <Counter
-          initialValue={3}
-        />
+       <Chat/>
      </div>
     );
   }
