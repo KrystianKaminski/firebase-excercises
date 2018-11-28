@@ -16,7 +16,10 @@ class Chat extends React.Component {
             snapshot => {
                 const array = Object.entries(snapshot.val())
                 console.log(array)
-                const messagesList = array.map(message => message[1])
+                const messagesList = array.map(entry => ({
+                    ...entry[1],
+                    key: entry[0]
+                }))
 
                 this.setState( {messages: messagesList})
             }
