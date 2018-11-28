@@ -13,7 +13,13 @@ class Chat extends React.Component {
     componentDidMount() {
         database.ref('/messages').on(
             'value',
-            snapshot => this.setState({messages: snapshot.val()})
+            snapshot => {
+                const array = Object.entries(snapshot.val())
+                console.log(array)
+                const messagesList = array.map(message => message[1])
+
+                this.setState( {messages: messagesList})
+            }
         )
     }
 
@@ -39,6 +45,11 @@ class Chat extends React.Component {
                     onChange={this.handleInput}
                     onClick={this.handleSubmit}
                 />
+                <div>
+                    {this.state.messages.map(message => (
+                        <div>{message.text}</div>
+                    ))}
+                </div>
             </div>
         )
     }
