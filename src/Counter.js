@@ -3,7 +3,7 @@ import React from 'react'
 class Counter extends React.Component {
 
     state = {
-        value: 0
+        value: this.props.initialValue || 0
     }
 
     incHandler = () => this.setState({value: this.state.value + 1})
