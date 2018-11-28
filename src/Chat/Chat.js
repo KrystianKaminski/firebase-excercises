@@ -50,7 +50,9 @@ class Chat extends React.Component {
                 />
                 <div>
                     {this.state.messages.map(message => (
-                        <div>{message.text}</div>
+                        <div
+                            key={message.key}
+                        >{message.text}</div>
                     ))}
                 </div>
             </div>
