@@ -8,19 +8,30 @@ class Counter extends React.Component {
 
     incHandler = () => {
         this.setState({value: this.state.value + 1})
-        let newValue = this.state.value + 1
-        fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
-            method: 'PUT',
-            body: JSON.stringify(newValue)
-        })
+        // let newValue = this.state.value + 1
+        // fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
+        //     method: 'PUT',
+        //     body: JSON.stringify(newValue)
+        // })
     }
     decHandler = () =>  {
         this.setState({value: this.state.value - 1})
-        let newValue = this.state.value - 1
+        // let newValue = this.state.value - 1
+        // fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
+        //     method: 'PUT',
+        //     body: JSON.stringify(newValue)
+        // })
+    }
+
+    saveToFirebase = () =>  {
         fetch('https://krystian-kaminski.firebaseio.com/counter.json', {
             method: 'PUT',
-            body: JSON.stringify(newValue)
+            body: JSON.stringify(this.state.value)
         })
+    }
+
+    componentDidUpdate() {
+        this.saveToFirebase()
     }
 
     render() {
