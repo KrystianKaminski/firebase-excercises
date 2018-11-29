@@ -1,14 +1,27 @@
 import React from 'react'
 
+import {List, ListItem} from 'material-ui/List';
+
+import DeleteIcon from 'material-ui/svg-icons/action/delete';
+import IconButton from 'material-ui/IconButton'
+
 
 const MessagesList = (props) => (
-    <div>
+    <List>
         {props.messages.map(message => (
-            <div
+            <ListItem
                 key={message.key}
-            >{message.text}</div>
+                rightIconButton={<IconButton>
+                    <DeleteIcon>
+                        
+                    </DeleteIcon>
+                </IconButton>
+                }
+            >{message.text}
+            
+            </ListItem>
         ))}
-    </div>
+    </List>
 )
 
 export default MessagesList

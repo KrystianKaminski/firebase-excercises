@@ -48,14 +48,14 @@ class Chat extends React.Component {
     render() {
         return (
             <div>
+               <MessagesList
+                    messages={this.state.messages}
+               />
                 <Input
                     text={this.state.newMessageText}
                     onChange={this.handleInput}
                     onClick={this.handleSubmit}
                 />
-               <MessagesList
-                    messages={this.state.messages}
-               />
             </div>
         )
     }
