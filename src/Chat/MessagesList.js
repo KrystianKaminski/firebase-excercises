@@ -14,9 +14,11 @@ const MessagesList = (props) => (
                 key={message.key}
                 primaryText={message.text}
                 secondaryText={moment(message.timeStamp).format('DD-MM-YYYY hh:mm')}
-                rightIconButton={<IconButton>
-                    <DeleteIcon>
-                    </DeleteIcon>
+                rightIconButton={
+                <IconButton
+                    onClick={() => alert(message.key)}
+                >
+                    <DeleteIcon/>
                 </IconButton>
                 }
             />

@@ -4,7 +4,8 @@ import Paper from 'material-ui/Paper'
 
 
 const style = {
-    padding: 20,
+    paddingRight: 30,
+    paddingLeft: 30,
     position: 'fixed',
     bottom: 0,
     width: '100%',
