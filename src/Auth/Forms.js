@@ -41,12 +41,12 @@ const Forms = (props) => (
             <RaisedButton
                 label="Login"
                 primary={true}
-                onClick={props.onClickHandler}
+                onClick={props.onLogIn}
                 fullWidth
             />
             <RaisedButton
                 label="Login by Google"
-                onClick={props.onClickHandler}
+                onClick={props.onLogGoogle}
                 fullWidth
             />
         </Paper>

@@ -19,10 +19,13 @@ class Auth extends React.Component {
         this.setState({ password: e.target.value })
     }
 
-    clickHandler = () => {
-        alert('Something clicked! :o')
+    onLogInClick = () => { 
+        alert('By normal')
     }
 
+    onLogInByGoogleClick = () => {
+        alert('By google')
+     }
 
 
 
@@ -31,9 +34,10 @@ class Auth extends React.Component {
             <Forms
                 emailHandler={this.emailHandler}
                 passwordHandler={this.passwordHandler}
-                onClickHandler={this.clickHandler}
+                onLogIn={this.onLogInClick}
+                onLogGoogle={this.onLogInByGoogleClick}
                 emailValue={this.state.email}
-                passwordValue={this.state.passwordValue}
+                passwordValue={this.state.password}
             />
         )
     }
