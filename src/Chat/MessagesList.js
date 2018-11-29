@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 import {List, ListItem} from 'material-ui/List';
 
@@ -11,15 +12,14 @@ const MessagesList = (props) => (
         {props.messages.map(message => (
             <ListItem
                 key={message.key}
+                primaryText={message.text}
+                secondaryText={moment(message.timeStamp).format('DD-MM-YYYY hh:mm')}
                 rightIconButton={<IconButton>
                     <DeleteIcon>
-                        
                     </DeleteIcon>
                 </IconButton>
                 }
-            >{message.text}
-            
-            </ListItem>
+            />
         ))}
     </List>
 )
