@@ -45,11 +45,20 @@ class Chat extends React.Component {
         this.setState( {newMessageText: ''})
     }
 
+    onDeleteMessageClickHandler = messageKey => {
+        database.ref(`/messages/${messageKey}`)
+            .set(null)
+            
+    }
+
+
+
     render() {
         return (
             <div>
                <MessagesList
                     messages={this.state.messages}
+                    onDeleteMessageClickHandler={this.onDeleteMessageClickHandler}
                />
                 <Input
                     text={this.state.newMessageText}
