@@ -2,6 +2,7 @@ import React from 'react'
 
 import { database } from '../firebaseConfig'
 import Input from './ChatInput'
+import MessagesList from './MessagesList';
 
 class Chat extends React.Component {
 
@@ -52,13 +53,9 @@ class Chat extends React.Component {
                     onChange={this.handleInput}
                     onClick={this.handleSubmit}
                 />
-                <div>
-                    {this.state.messages.map(message => (
-                        <div
-                            key={message.key}
-                        >{message.text}</div>
-                    ))}
-                </div>
+               <MessagesList
+                    messages={this.state.messages}
+               />
             </div>
         )
     }
