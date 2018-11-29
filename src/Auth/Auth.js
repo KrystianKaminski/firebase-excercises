@@ -24,9 +24,9 @@ class Auth extends React.Component {
             // user is an obj with user data or null when not loggen in
             user => {
                 if (user) {
-                    this.setState( {isUserLoggedIn: true})
+                    this.setState({ isUserLoggedIn: true })
                 } else {
-                    this.setState({isUserLoggedIn: false})
+                    this.setState({ isUserLoggedIn: false })
                 }
             }
         )
@@ -41,7 +41,7 @@ class Auth extends React.Component {
         this.setState({ password: e.target.value })
     }
 
-    onLogInClick = () => { 
+    onLogInClick = () => {
         auth.signInWithEmailAndPassword(this.state.email, this.state.password)
             .catch(error => {
                 alert('Something is wrong! Check console for error details')
@@ -51,11 +51,11 @@ class Auth extends React.Component {
 
     onLogInByGoogleClick = () => {
         auth.signInWithPopup(googleProvider)
-     }
+    }
 
-     onLogOutClickHandler = () => {
-         auth.signOut()
-     }
+    onLogOutClickHandler = () => {
+        auth.signOut()
+    }
 
 
     render() {
@@ -66,7 +66,7 @@ class Auth extends React.Component {
                         style={{
                             position: 'fixed',
                             top: 10,
-                            right: 10,
+                            left: 10,
                             zIndex: 9999,
                             color: 'white'
                         }}
@@ -78,14 +78,14 @@ class Auth extends React.Component {
                     {this.props.children}
                 </div>
                 :
-            <Forms
-                emailHandler={this.emailHandler}
-                passwordHandler={this.passwordHandler}
-                onLogIn={this.onLogInClick}
-                onLogGoogle={this.onLogInByGoogleClick}
-                emailValue={this.state.email}
-                passwordValue={this.state.password}
-            />
+                <Forms
+                    emailHandler={this.emailHandler}
+                    passwordHandler={this.passwordHandler}
+                    onLogIn={this.onLogInClick}
+                    onLogGoogle={this.onLogInByGoogleClick}
+                    emailValue={this.state.email}
+                    passwordValue={this.state.password}
+                />
         )
     }
 }

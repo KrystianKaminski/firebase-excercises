@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { database } from '../firebaseConfig'
+import { auth, database } from '../firebaseConfig'
 import Input from './ChatInput'
 import MessagesList from './MessagesList';
 
@@ -41,7 +41,11 @@ class Chat extends React.Component {
         event.preventDefault()
         database.ref('/messages').push({
             text: this.state.newMessageText,
-            timeStamp: Date.now()
+            timeStamp: Date.now(),
+            author: {
+                email: auth.currentUser.email,
+                displayName: auth.currentUser.displayName
+            }
         })
         this.setState( {newMessageText: ''})
     }

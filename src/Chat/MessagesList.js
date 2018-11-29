@@ -13,7 +13,10 @@ const MessagesList = (props) => (
             <ListItem
                 key={message.key}
                 primaryText={message.text}
-                secondaryText={moment(message.timeStamp).format('DD-MM-YYYY hh:mm')}
+                secondaryText={`
+                ${moment(message.timeStamp).format('DD-MM-YYYY hh:mm')}
+                ${message.author.displayName || message.author.email}
+                `}
                 rightIconButton={
                 <IconButton>
                     <DeleteIcon
