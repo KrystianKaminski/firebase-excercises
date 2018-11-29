@@ -1,33 +1,55 @@
 import React from 'react'
 
 import { TextField, RaisedButton } from 'material-ui';
+import Paper from 'material-ui/Paper'
+
+
+const style = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 20,
+    margin: 20
+}
+
 
 const Forms = (props) => (
-    <form>
-        <div>
-                        <TextField
-                            hintText="Email"
-                            onChange={this.props.emailHandler}
-                        />
-                    </div>
+    <div>
+        <Paper
+            style={style}
+        >
+            <div>
+                <TextField
+                    name="email"
+                    type="email"
+                    floatingLabelText="E-Mail"
+                    fullWidth
+                    onChange={props.emailHandler}
+                />
+            </div>
 
-                    <div>
-                        <TextField
-                            hintText="Password"
-                            type="password"
-                            onChange={this.props.password}
-                        />
-                    </div>
-                    <RaisedButton
-                        label="Login"
-                        primary={true}
-                        onClick={this.onClickHandler}
-                        fullWidth
-                    />
-                    <RaisedButton
-                        label="Login by Google"
-                        onClick={this.onClickHandler}
-                        fullWidth
-                    />
-    </form>
+            <div>
+                <TextField
+                    floatingLabelText="Password"
+                    type="password"
+                    onChange={props.passwordHandler}
+                    fullWidth
+                />
+            </div>
+            <RaisedButton
+                label="Login"
+                primary={true}
+                onClick={props.onClickHandler}
+                fullWidth
+            />
+            <RaisedButton
+                label="Login by Google"
+                onClick={props.onClickHandler}
+                fullWidth
+            />
+        </Paper>
+    </div>
 )
+
+
+export default Forms
