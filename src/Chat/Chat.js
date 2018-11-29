@@ -14,12 +14,12 @@ class Chat extends React.Component {
         database.ref('/messages').on(
             'value',
             snapshot => {
-                const array = Object.entries(snapshot.val())
-                console.log(array)
+                const array = Object.entries(snapshot.val() || {}).reverse()
                 const messagesList = array.map(entry => ({
                     ...entry[1],
                     key: entry[0]
                 }))
+                console.log(messagesList)
 
                 this.setState( {messages: messagesList})
             }
