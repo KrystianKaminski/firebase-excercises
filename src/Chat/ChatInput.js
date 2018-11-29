@@ -1,20 +1,23 @@
 import React from 'react'
+import { TextField, RaisedButton } from 'material-ui';
 
 
 
 
 const Input = (props) => (
     <div>
-        <input
+        <TextField
             value={props.text}
             onChange={props.onChange}
             type="text"
+            fullWidth
         />
-        <button
+        <RaisedButton
+             label="Add"
              onClick={props.onClick}
-        >
-            Send
-        </button>
+             secondary={true}
+             fullWidth
+        />
     </div>
 )
 
