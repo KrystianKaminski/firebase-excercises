@@ -14,7 +14,9 @@ const style = {
 
 
 const Input = (props) => (
-    <div>
+    <form
+        onSubmit={props.onClick}
+    >
         <Paper
             style={style}
         >
@@ -31,7 +33,7 @@ const Input = (props) => (
                 fullWidth
             />
         </Paper>
-    </div>
+    </form>
 )
 
 export default Input

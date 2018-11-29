@@ -37,7 +37,8 @@ class Chat extends React.Component {
         })
     }
 
-    handleSubmit = () => {
+    handleSubmit = event => {
+        event.preventDefault()
         database.ref('/messages').push({
             text: this.state.newMessageText,
             timeStamp: Date.now()
