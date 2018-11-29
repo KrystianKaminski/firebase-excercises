@@ -7,7 +7,8 @@ class Auth extends React.Component {
 
     state = {
         email: '',
-        password: ''
+        password: '',
+        isUserLoggedIn: false
     }
 
 
@@ -31,6 +32,9 @@ class Auth extends React.Component {
 
     render() {
         return (
+            this.state.isUserLoggedIn ?
+                this.props.children 
+                :
             <Forms
                 emailHandler={this.emailHandler}
                 passwordHandler={this.passwordHandler}
