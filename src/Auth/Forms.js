@@ -24,6 +24,7 @@ const Forms = (props) => (
                     type="email"
                     floatingLabelText="E-Mail"
                     fullWidth
+                    value={props.emailValue}
                     onChange={props.emailHandler}
                 />
             </div>
@@ -33,6 +34,7 @@ const Forms = (props) => (
                     floatingLabelText="Password"
                     type="password"
                     onChange={props.passwordHandler}
+                    value={props.passwordValue}
                     fullWidth
                 />
             </div>

@@ -32,6 +32,8 @@ class Auth extends React.Component {
                 emailHandler={this.emailHandler}
                 passwordHandler={this.passwordHandler}
                 onClickHandler={this.clickHandler}
+                emailValue={this.state.email}
+                passwordValue={this.state.passwordValue}
             />
         )
     }
