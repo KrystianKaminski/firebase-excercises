@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { auth } from '../firebaseConfig'
+
 import Forms from './Forms'
 
 
