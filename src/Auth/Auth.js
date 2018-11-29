@@ -14,6 +14,21 @@ class Auth extends React.Component {
     }
 
 
+
+    componentDidMount() {
+        auth.onAuthStateChanged(
+            // user is an obj with user data or null when not loggen in
+            user => {
+                if (user) {
+                    this.setState( {isUserLoggedIn: true})
+                } else {
+                    this.setState({isUserLoggedIn: false})
+                }
+            }
+        )
+    }
+
+
     emailHandler = e => {
         this.setState({ email: e.target.value })
     }
@@ -23,7 +38,11 @@ class Auth extends React.Component {
     }
 
     onLogInClick = () => { 
-        alert('By normal')
+        auth.signInWithEmailAndPassword(this.state.email, this.state.password)
+            .catch(error => {
+                alert('Something is wrong! Check console for error details')
+                console.log(error)
+            })
     }
 
     onLogInByGoogleClick = () => {
