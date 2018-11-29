@@ -26,6 +26,10 @@ class Chat extends React.Component {
         )
     }
 
+    componentWillUnmount() {
+        database.ref('/messages').off()
+    }
+
     handleInput = e => {
         this.setState({
             newMessageText: e.target.value,
