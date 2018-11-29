@@ -44,7 +44,8 @@ class Chat extends React.Component {
             timeStamp: Date.now(),
             author: {
                 email: auth.currentUser.email,
-                displayName: auth.currentUser.displayName
+                displayName: auth.currentUser.displayName,
+                img: auth.currentUser.photoURL || `https://api.adorable.io/avatars/285/${auth.currentUser.email}`
             }
         })
         this.setState( {newMessageText: ''})
